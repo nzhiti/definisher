@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig host="lindow.fr" id="16f4436a-1e8b-4d58-ac48-14001cf87ef1" keyPath="C:\Users\Nicolas\.ssh\ed_nicolas" port="2202" nameFormat="DESCRIPTIVE" username="nicolas" />
-    </configs>
-  </component>
-</project>
