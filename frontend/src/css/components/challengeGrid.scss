@@ -1,0 +1,22 @@
+.challengeGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .challenge {
+        margin: 0 0.5rem;
+
+        &:not(:last-child) {
+            padding-bottom: 4rem;
+        }
+    }
+}
+
+@media screen and (min-width: $BREAK_2) {
+    .challengeGrid {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}

@@ -1,0 +1,125 @@
+$BORDER_SIZE: 5px;
+
+.challenge {
+    text-align: center;
+    width: 18rem;
+
+    a {
+        color: $gray;
+    }
+}
+
+.challenge-header {
+    position: relative;
+    margin: 0 auto 1rem;
+    width: $CHALLENGE_THUMB_SIZE + (2 * $BORDER_SIZE);
+}
+
+.challenge-thumbnail {
+    position: relative;
+    width: $CHALLENGE_THUMB_SIZE;
+    height: $CHALLENGE_THUMB_SIZE;
+    border: $BORDER_SIZE solid white;
+    cursor: pointer;
+
+    > img {
+        max-width: 100%;
+    }
+
+    &:after {
+        top: 0;
+        left: 0;
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+    }
+}
+
+.challenge-header:hover {
+    .challenge-thumbnail {
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    .challenge-title {
+        text-decoration: underline;
+    }
+}
+
+.challenge-title {
+    display: flex;
+    letter-spacing: 0.05rem;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    height: 2.6rem;
+    font-style: italic;
+    text-transform: uppercase;
+    color: $blue_dark;
+    cursor: pointer;
+    background: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.challenge-description {
+    margin: 0 auto;
+    width: $CHALLENGE_THUMB_SIZE;
+}
+
+.challenge-cta {
+    margin-top: 1rem;
+}
+
+.challenge-timer {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background: rgba($gray, 0.70);
+    background-image: url('/img/clock.svg');
+    background-repeat: no-repeat;
+    background-position: center 80%;
+    background-size: 50% 50%;
+    color: $white;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    white-space: break; 
+}
+
+.challenge--expire,
+.challenge--complet {
+    .challenge-thumbnail {
+        &:before {
+            position: absolute;
+            background: rgba($red, 0.70);
+            color: $white;
+            width: 100%;
+            height: 100%;
+            line-height: 18rem;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.challenge--expire {
+    .challenge-thumbnail {
+        &:before {
+            content: 'Challenge terminé !';
+        }
+    }
+}
+
+.challenge--complet {
+    .challenge-thumbnail {
+        &:before {
+            content: 'Déjà complet !';
+        }
+    }
+}

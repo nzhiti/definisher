@@ -1,0 +1,11 @@
+.link {
+    cursor: pointer;
+    color: $teal;
+    transition: color 0.3s linear;
+    font-style: italic;
+}
+
+.link:hover {
+    color: $blue_dark;
+    text-decoration: underline;
+}

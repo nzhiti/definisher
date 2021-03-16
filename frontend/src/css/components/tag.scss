@@ -1,0 +1,14 @@
+.tag {
+    padding: 0 0.5rem;
+    border-radius: 0.3rem;
+    background: $gray;
+    color: $white;
+    font-weight: normal;
+    font-size: 0.6em;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+.tag--green {
+    background: $green;
+}

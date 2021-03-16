@@ -1,0 +1,10 @@
+.wrapper {
+    margin: 0 auto;
+    width: 90vw;
+}
+
+@media screen and (min-width: $BREAK_1) {
+    .wrapper {
+        width: 80vw;
+    }
+}

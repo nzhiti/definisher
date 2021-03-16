@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+    api:
+        build:
+            context: ../api
+        ports:
+            - '8080:9090'
+        depends_on:
+            - database
+        volumes:
+            - ../api:/home/node/app
+        environment:
+            - PORT=8080
+            - HOSTNAME=http://localhost
+            - DB_USER=definisher
+            - DB_PASS=definisher
+            - DB_HOST=database
+            - DB_PORT=5432
+            - DB_NAME=definisher
+            - AUTH_SECRET=5z7JK3HHT1M2v3rgyu2gofL29egKnIJ7
+            - MAIL_PUBLIC_KEY=4ae6a6294ac902a88170ca295aa678df
+            - MAIL_PRIVATE_KEY=7572426eb9b7f3af76dc8f267c177980
+            - STRIPE_API_KEY=sk_test_51ISeOiCnXtcLxprnR97RIr3rOZYVvZwm1tUg5vtHCIgYWD50W07ciuIp7Wukae8UbXJJXJLM0y2tciBWTNUHbj8H00UNkztW6O
+            - STRIPE_WEBHOOK_SECRET=whsec_c61P6lJmg7PmscwVATHLenpcDERe6H7q
+            - STRAVA_CLIENT_ID=62249
+            - STRAVA_CLIENT_SECRET=35865dc234d6c290f1607f68dc1d82bd22af0b31
+            - STRAVA_TOKEN=8db15d624c32e9d7f948aab2ab08ff936efb146f
+    frontend:
+        build:
+            context: ../frontend
+            target: development
+        command: parcel serve ./src/index.html --no-autoinstall --port 9092 --hmr-port 9093
+        ports:
+            - '9092:9092'
+            - '9093:9093'
+        volumes:
+            - ../frontend:/home/node/app
+    pgadmin:
+        container_name: pgadmin_container
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+            PGADMIN_CONFIG_SERVER_MODE: 'False'
+        volumes:
+            - pgadmin:/root/.pgadmin
+        ports:
+            - "${PGADMIN_PORT:-5050}:80"
+        restart: unless-stopped
+    database:
+        image: postgres:latest
+        restart: always
+        ports:
+            - '5432:5432'
+        volumes:
+            - ./postgres-data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_USER=definisher
+            - POSTGRES_DB=definisher
+            - POSTGRES_PASSWORD=definisher
+volumes:
+    pgadmin:

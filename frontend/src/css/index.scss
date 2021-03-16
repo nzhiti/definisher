@@ -1,0 +1,40 @@
+@import './reset.scss';
+@import './toasted.scss';
+
+@import './config/vars.scss';
+@import './config/colors.scss';
+
+@import './components/badge.scss';
+@import './components/banner.scss';
+@import './components/button.scss';
+@import './components/challenge.scss';
+@import './components/challengeGrid.scss';
+@import './components/faq.scss';
+@import './components/footer.scss';
+@import './components/formulate.scss';
+@import './components/link.scss'; 
+@import './components/linear.scss';
+@import './components/logo.scss';
+@import './components/offer.scss';
+@import './components/produit.scss';
+@import './components/map.scss';
+@import './components/section.scss';
+@import './components/slider.scss';
+@import './components/table.scss';
+@import './components/tag.scss';
+@import './components/toggler.scss';
+@import './components/topbar.scss';
+@import './components/wrapper.scss';
+
+html,
+body {
+    font-family: Poppins;
+    color: $gray;
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}

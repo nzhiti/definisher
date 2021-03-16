@@ -1,0 +1,54 @@
+.section {
+    padding: 3rem 0;
+}
+
+.section-title {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.section-title--small {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.section-title--stylish {
+    text-transform: uppercase;
+
+    span{
+        position: relative;
+
+        &:after {
+            position: absolute;
+            bottom: 0rem;
+            left: 1rem;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1rem;
+            background: rgba($red, 0.5);
+        }
+    }
+}
+
+.section-description {
+    font-size: 1.15rem;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    margin: -1rem 0 3rem;
+}
+
+@media screen and (min-width: $BREAK_1) {
+    .section {
+        padding: 5rem 0;
+    }
+}
+
+@media screen and (min-width: $BREAK_2) {
+    .section-title--small {
+        font-size: 2rem;
+        font-weight: normal;
+    }
+}

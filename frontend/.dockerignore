@@ -1,0 +1,10 @@
+.dockerignore
+.git*
+.cache
+dist
+Dockerfile
+node_modules
+.DS_Store
+.env*
+README.md
+.parcel-cache

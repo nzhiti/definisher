@@ -1,0 +1,126 @@
+.topbar {
+    > .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.topbar-hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.topbar .logo,
+.topbar-hamburger,
+.topbar-links {
+    padding-bottom: 0.5rem;
+}
+
+.topbar-links {
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    overflow: hidden;
+    flex: 100vw;
+    font-size: 1rem;
+    text-align: right;
+    transition: max-height 0.2s ease-out;
+
+    > ul {
+        list-style: none;
+
+        > li {
+            line-height: 3rem;
+        }
+    }
+
+    a {
+        position: relative;
+        color: $gray;
+
+        &:before {
+            position: absolute;
+            bottom: -5%;
+            right: 5%;
+            margin-top: -0.15em;
+            content: '';
+            display: block;
+            height: 0.75em;
+            width: 0;
+            background: $blue_dark;
+            opacity: 0.3;
+            transition: width 0.2s ease-out;
+        }
+
+        &:hover:before {
+            width: 100%;
+        }
+    }
+
+    &.topbar-links--measured {
+        position: initial;
+        visibility: visible;
+        max-height: 0;
+    }
+}
+
+@media screen and (min-width: $BREAK_1) {
+    .topbar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .topbar-hamburger {
+        display: none;
+    }
+
+    .topbar-links {
+        position: initial;
+        visibility: visible;
+        flex: 1;
+        padding-top: 0;
+
+        &.topbar-links--measured {
+            max-height: none;
+        }
+
+        > ul > li {
+            display: inline-block;
+            line-height: 3.3rem;
+
+            &:not(:last-child):after {
+                margin: 0 0.5rem;
+                display: inline-block;
+                content: '';
+                width: 0.4rem;
+                height: 0.4rem;
+                background: $blue_dark;
+                border-radius: 50%;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .topbar--dark {
+        .logo {
+            @include logoLight();
+        }
+    
+        .topbar-links {
+            a {
+                color: $white;
+                &:before {
+                    background: $white;
+                }
+            }
+    
+            > ul > li:not(:last-child):after {
+                background: $blue_light;
+            }
+        }
+    }
+}
+

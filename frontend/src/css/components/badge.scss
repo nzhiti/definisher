@@ -1,0 +1,13 @@
+.badge {
+    padding: 0;
+    line-height: 0;
+    font-size: 5rem;
+}
+
+.badge--success {
+    color: $green;
+}
+
+.badge--error {
+    color: $red_dark;
+}

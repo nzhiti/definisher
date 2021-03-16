@@ -1,0 +1,113 @@
+.formulate-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > .link {
+        margin: 0 0 1rem;
+    }
+}
+
+.formulate-input {
+    margin-bottom: 1.2rem;
+}
+
+.formulate-description {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.formulate-input-element:not(.formulate-input-element--checkbox) {
+    max-width: 20rem;
+
+    > input {
+        padding: 0 1rem;
+        max-width: 100%;
+        min-width: 0;
+        font-family: Poppins;
+        color: $gray;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        height: 2.5rem;
+        border: 1px solid $gray_light;
+        box-sizing: border-box;
+    }
+
+    > select {
+        padding: 0 1rem;
+        font-size: 1rem;
+        max-width: 100%;
+        min-width: 0;
+        font-family: Poppins;
+        height: 2.5rem;
+        border: 1px solid $gray_light;
+        box-sizing: border-box;
+        background: none;
+    }
+
+    &.formulate-input-element--submit {
+        > button {
+            padding: 0.5rem 1rem;
+            background: $red;
+            border: none;
+            color: $white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            // line-height: 2.5rem;
+            border-radius: 0.2rem;
+            transition: opacity 0.2s linear;
+
+            &:disabled {
+                cursor: default;
+                border: none;
+                background: none;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.formulate-input[data-type='checkbox'] {
+    max-width: 20rem;
+
+    .formulate-input-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .formulate-input-label {
+        padding-left: 1rem;
+    }
+}
+
+.formulate-input[data-has-errors][data-is-showing-errors] {
+    .formulate-input-label {
+        color: $red;
+    }
+
+    .formulate-input-element {
+        > input {
+            border-color: $red;
+        }
+    }
+}
+
+.formulate-form-errors {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 1rem;
+    color: $red;
+}
+
+.formulate-input-errors {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.8rem;
+    color: $red;
+    max-width: 20rem;
+}

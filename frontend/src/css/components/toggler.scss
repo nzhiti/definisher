@@ -1,0 +1,30 @@
+.toggler {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toggler-item {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: $gray_light;
+    cursor: pointer;
+}
+
+.toggler-item:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.toggler-item:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.toggler-item--active {
+    color: $white;
+    background: $blue_dark;
+}
+
+.toggler-item:hover:not(.toggler-item--active) {
+    color: $white;
+    background: $gray;
+}
